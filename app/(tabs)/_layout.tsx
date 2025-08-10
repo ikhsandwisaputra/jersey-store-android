@@ -1,17 +1,19 @@
 import { Tabs } from 'expo-router';
 import React from 'react';
-import { Platform } from 'react-native';
+import { Platform, SafeAreaView, Text, View } from 'react-native';
 
 import { HapticTab } from '@/components/HapticTab';
 import { IconSymbol } from '@/components/ui/IconSymbol';
 import TabBarBackground from '@/components/ui/TabBarBackground';
 import { Colors } from '@/constants/Colors';
 import { useColorScheme } from '@/hooks/useColorScheme';
-
+import Header from '@/components/Header';
 export default function TabLayout() {
   const colorScheme = useColorScheme();
 
   return (
+    <>
+    <Header/>
     <Tabs
       screenOptions={{
         tabBarActiveTintColor: Colors[colorScheme ?? 'light'].tint,
@@ -23,6 +25,9 @@ export default function TabLayout() {
             // Use a transparent background on iOS to show the blur effect
             position: 'absolute',
           },
+          android: {
+            backgroundColor: Colors[colorScheme ?? 'light'].background,
+          },
           default: {},
         }),
       }}>
@@ -33,13 +38,34 @@ export default function TabLayout() {
           tabBarIcon: ({ color }) => <IconSymbol size={28} name="house.fill" color={color} />,
         }}
       />
-      <Tabs.Screen
-        name="explore"
-        options={{
-          title: 'Explore',
-          tabBarIcon: ({ color }) => <IconSymbol size={28} name="paperplane.fill" color={color} />,
-        }}
-      />
+     <Tabs.Screen
+    name="detailJersey"
+    options={{
+      href: null, // penting: ini supaya tidak muncul di tab bar
+    }}
+  />
+    <Tabs.Screen
+      name="cart"
+      options={{
+        title: 'Cart',
+        tabBarIcon: ({ color }) => <IconSymbol size={28} name="cart.fill" color={color} />,
+      }}
+    />
+    <Tabs.Screen
+      name="wishList"
+      options={{
+        title: 'WishList',
+        tabBarIcon: ({ color }) => <IconSymbol size={28} name="heart.fill" color={color} />,
+      }}
+    />
+    <Tabs.Screen
+      name="profile"
+      options={{
+        title: 'Profile',
+        tabBarIcon: ({ color }) => <IconSymbol size={28} name="person.fill" color={color} />,
+      }}
+    />
     </Tabs>
+        </>
   );
 }

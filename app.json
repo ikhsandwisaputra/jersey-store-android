@@ -1,11 +1,11 @@
 {
   "expo": {
-    "name": "liverpool-store",
-    "slug": "liverpool-store",
+    "name": "jersey-store",
+    "slug": "jersey-store",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/images/icon.png",
-    "scheme": "liverpoolstore",
+    "scheme": "jerseystore",
     "userInterfaceStyle": "automatic",
     "newArchEnabled": true,
     "ios": {
@@ -16,7 +16,8 @@
         "foregroundImage": "./assets/images/adaptive-icon.png",
         "backgroundColor": "#ffffff"
       },
-      "edgeToEdgeEnabled": true
+      "edgeToEdgeEnabled": true,
+      "package": "com.ikhsanx.jerseystore"
     },
     "web": {
       "bundler": "metro",
@@ -33,10 +34,17 @@
           "resizeMode": "contain",
           "backgroundColor": "#ffffff"
         }
-      ]
+      ],
+      "expo-secure-store"
     ],
     "experiments": {
       "typedRoutes": true
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "fc1415aa-b94c-4dea-94d0-5e6ae7aa40cc"
+      }
     }
   }
 }
